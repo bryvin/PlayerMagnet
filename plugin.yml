@@ -2,10 +2,11 @@ name: PlayerMagnet
 main: com.bryanchauvin.playermagnet.PlayerMagnet
 version: 1.0
 author: BChauv
+api-version: 1.21
 
 commands:
-   magnet:
-      description: Turn the player magnet on or off.
-      usage: /<command> <on|off>
-      permission: playermagnet.magnet
-      permission-message: You don't have permission to use the player magnet.
+  magnet:
+    description: Turn the player magnet on or off.
+    usage: /<command> [on|off]
+    permission: playermagnet.magnet
+    permission-message: You don't have permission to use the player magnet.

@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.bryanchauvin</groupId>
+  <artifactId>playermagnet</artifactId>
+  <version>1.0</version>
+  <name>PlayerMagnet</name>
+  <packaging>jar</packaging>
+
+  <properties>
+    <!-- Spigot 1.21.x runs on Java 21 -->
+    <maven.compiler.release>21</maven.compiler.release>
+
+    <!-- Pick the closest matching API line; adjust if you build a different Spigot patch -->
+    <spigot.version>1.21.1-R0.1-SNAPSHOT</spigot.version>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>spigotmc-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot-api</artifactId>
+      <version>${spigot.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- Keep your current layout (src/com/...) without moving files -->
+    <sourceDirectory>src</sourceDirectory>
+
+    <resources>
+      <resource>
+        <directory>.</directory>
+        <includes>
+          <include>plugin.yml</include>
+          <include>config.yml</include>
+        </includes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <release>${maven.compiler.release}</release>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <finalName>PlayerMagnet</finalName>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
